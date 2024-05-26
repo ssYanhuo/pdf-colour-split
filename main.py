@@ -42,6 +42,15 @@ def generate_action_list(input_list):
 
 if __name__ == '__main__':
 
+    print('▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄   ▄▄ ▄▄▄▄▄▄ ▄▄    ▄ ▄▄   ▄▄ ▄▄   ▄▄ ▄▄▄▄▄▄▄   ')
+    print('█       █       █  █ █  █      █  █  █ █  █ █  █  █ █  █       █ ')
+    print('█  ▄▄▄▄▄█  ▄▄▄▄▄█  █▄█  █  ▄   █   █▄█ █  █▄█  █  █ █  █   ▄   █ ')
+    print('█ █▄▄▄▄▄█ █▄▄▄▄▄█       █ █▄█  █       █       █  █▄█  █  █ █  █ ')
+    print('█▄▄▄▄▄  █▄▄▄▄▄  █▄     ▄█      █  ▄    █   ▄   █       █  █▄█  █ ')
+    print('▄▄▄▄▄█  █▄▄▄▄▄█ █ █   █ █  ▄   █ █ █   █  █ █  █       █       █ ')
+    print('█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█ █▄▄▄█ █▄█ █▄▄█▄█  █▄▄█▄▄█ █▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█ ')
+
+
     print()
     print('Developed by ssYanhuo.')
     print('Star on GitHub: ' + 'https://github.com/ssYanhuo/pdf-colour-split')

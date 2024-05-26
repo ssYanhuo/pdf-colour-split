@@ -59,8 +59,8 @@ if __name__ == '__main__':
     input_file_path = input('要拆分的文件路径：')
     output_file_path = input('输出文件夹路径：')
 
-    double_page = input('单面打印 (s) OR 双面打印 (d*)？').lower() != 's'
-    detect_threshold = int(input('检测阈值 (10*)：') or 10)
+    double_page = input('单面打印 (s) OR 双面打印 (d)？').lower() != 's'
+    detect_threshold = int(input('检测阈值 (10)：') or 10)
 
     print()
     print('开始拆分')

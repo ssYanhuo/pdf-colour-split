@@ -7,6 +7,23 @@ import numpy as np
 import os
 
 
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        pass
+
+    try:
+        import unicodedata
+        unicodedata.numeric(s)
+        return True
+    except (TypeError, ValueError):
+        pass
+
+    return False
+
+
 def is_colour_page(page, threshold):
     pixel_map = page.get_pixmap()
 
@@ -50,17 +67,24 @@ if __name__ == '__main__':
     print('▄▄▄▄▄█  █▄▄▄▄▄█ █ █   █ █  ▄   █ █ █   █  █ █  █       █       █ ')
     print('█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█ █▄▄▄█ █▄█ █▄▄█▄█  █▄▄█▄▄█ █▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█ ')
 
-
     print()
     print('Developed by ssYanhuo.')
     print('Star on GitHub: ' + 'https://github.com/ssYanhuo/pdf-colour-split')
     print()
 
-    input_file_path = input('要拆分的文件路径：')
-    output_file_path = input('输出文件夹路径：')
+    input_file_path = input('要拆分的文件路径（可直接拖入）：')
+    output_file_path = input('输出文件夹路径（可直接拖入）：')
 
-    double_page = input('单面打印 (s) OR 双面打印 (d)？').lower() != 's'
-    detect_threshold = int(input('检测阈值 (10)：') or 10)
+    input_file_path = input_file_path.strip('"').strip('\'')
+    output_file_path = output_file_path.strip('"').strip('\'')
+
+    double_page = input('单面打印 (s) OR 双面打印 (d, 默认)：').lower() != 's'
+    detect_threshold = input('检测阈值 (10, 默认)：') or '10'
+
+    if not is_number(detect_threshold):
+        detect_threshold = 10
+    else:
+        detect_threshold = int(detect_threshold)
 
     print()
     print('开始拆分')
@@ -147,7 +171,7 @@ if __name__ == '__main__':
 
     print()
     print('按照以下方法把打印好的文稿重新组合成原文稿（可复制保存此段备用）：')
-    print('将打印好的黑白与彩色文稿按页码从小到大，自上而下排序（直接拿起打印好的文稿，正面朝上即可）')
+    print('将打印好的黑白与彩色文稿分别按页码从小到大，自上而下排序（直接拿起打印好的文稿，正面朝上即可）')
     print('组合时拿取指定张数的黑白或彩色文稿，一起翻面扣放在整理好的文稿上面')
     print()
 
@@ -162,3 +186,6 @@ if __name__ == '__main__':
 
     print()
     print('整理完成！')
+
+    print()
+    input('按任意键退出……')

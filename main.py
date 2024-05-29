@@ -136,20 +136,22 @@ if __name__ == '__main__':
             count['grayscale'] += 1
 
     print()
-    output_grayscale_path = '{}{}{}.pdf'.format(
-        os.path.join(output_file_path, os.path.splitext(os.path.basename(input_file_path))[0]),
-        '_grayscale',
-        '_double' if double_page else '_single')
+    if output_grayscale_pdf.page_count > 0:
+        output_grayscale_path = '{}{}{}.pdf'.format(
+            os.path.join(output_file_path, os.path.splitext(os.path.basename(input_file_path))[0]),
+            '_grayscale',
+            '_double' if double_page else '_single')
 
-    print('写入文件（黑白）：' + output_grayscale_path)
-    output_grayscale_pdf.save(output_grayscale_path)
+        print('写入文件（黑白）：' + output_grayscale_path)
+        output_grayscale_pdf.save(output_grayscale_path)
 
-    output_colour_path = '{}{}{}.pdf'.format(
-        os.path.join(output_file_path, os.path.splitext(os.path.basename(input_file_path))[0]),
-        '_colour',
-        '_double' if double_page else '_single')
-    print('写入文件（彩色）：' + output_colour_path)
-    output_colour_pdf.save(output_colour_path)
+    if output_colour_pdf.page_count > 0:
+        output_colour_path = '{}{}{}.pdf'.format(
+            os.path.join(output_file_path, os.path.splitext(os.path.basename(input_file_path))[0]),
+            '_colour',
+            '_double' if double_page else '_single')
+        print('写入文件（彩色）：' + output_colour_path)
+        output_colour_pdf.save(output_colour_path)
 
     print()
     print('拆分完成！')
